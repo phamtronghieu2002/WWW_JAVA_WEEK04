@@ -31,7 +31,20 @@ public class ManufacturerDAO  extends AbstractDAO   <Manufacturer,Long>{
     }
 
     @Override
+    public void update(Long aLong, Manufacturer entity) {
+        String sql = "UPDATE manufacturer SET name=?, email=? WHERE id=?";
+        jdbcTemplate.update(sql, entity.getName(), entity.getEmail(), aLong);
+    }
+
+    @Override
+    public void delete(Long aLong) {
+        String sql = "DELETE FROM manufacturer WHERE id=?";
+        jdbcTemplate.update(sql, aLong);
+    }
+
+    @Override
     public List<Manufacturer> findAll() {
-        return null;
+        String sql = "SELECT * FROM manufacturer";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Manufacturer.class));
     }
 }

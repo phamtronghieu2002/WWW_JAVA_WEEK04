@@ -24,7 +24,8 @@ public abstract class AbstractDAO <T,ID> {
 
     public abstract void insert(T entity);
     public abstract  T   finById(ID id);
-
+    public abstract void update(ID id,T entity);
+    public abstract void delete(ID id);
     public abstract List<T> findAll();
 
 

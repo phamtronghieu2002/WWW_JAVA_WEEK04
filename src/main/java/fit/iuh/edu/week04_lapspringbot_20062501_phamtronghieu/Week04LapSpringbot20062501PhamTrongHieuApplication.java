@@ -23,8 +23,9 @@ public class Week04LapSpringbot20062501PhamTrongHieuApplication {
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
-//                manuDao.insert(new Manufacturer("Apple","apple@gmail.com"));
-                System.out.println(manuDao.finById(1L));
+
+                manuDao.delete(3l);
+                System.out.println(manuDao.findAll());
             }
 
         };
